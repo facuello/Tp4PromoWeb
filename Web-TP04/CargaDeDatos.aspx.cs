@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Web_TP04
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class CargaDeDatos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected void BtnElegirPremio(object sender, EventArgs e)
-        {
-            Response.Redirect("CargaDeDatos.aspx");
         }
     }
 }

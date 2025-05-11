@@ -8,7 +8,6 @@
         <h1 class="H1Premios">¡Elegi el producto por el que quieras participar!</h1>
     </div>
     <div class="Premios">
-
         <div class="row">
             <div class="col">
                 <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">

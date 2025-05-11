@@ -21,7 +21,7 @@
             <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Dirección"></asp:TextBox>
+            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Direccion"></asp:TextBox>
         </div>
         <div>
             <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad"></asp:TextBox>

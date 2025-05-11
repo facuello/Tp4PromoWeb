@@ -1,21 +1,23 @@
-﻿/*PREMIOS*/
-.H1Premios {
+﻿/*DEFAULT*/
+.H1Default {
     font-size: 60px;
 }
-.imagen-premio1 {
-    width: 400px;
-    height: 300px;
-    margin-left: 17%;
+.UTN_img {
+    width: auto;
+    height: 400px;
 }
-.imagen-premio2 {
-    width: 400px;
-    height: 300px;
-    margin-left: 13%;
+.DivImgDefault {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }
-.imagen-premio3 {
-    width: 300px;
-    height: 300px;
-    margin-left: 14%;
+/*SORTEO*/
+.H1Sorteo {
+    font-size: 60px;
+}
+/*PREMIOS*/
+.H1Premios {
+    font-size: 60px;
 }
 .boton-premio {
     background-color: #007BFF;
@@ -40,4 +42,16 @@
     margin-top: 20px; /* Espacio superior para separar del encabezado */
 }
 
+.carousel-item img {
+    width: 50px;
+    height: 50px;
+}
+.carrousel {
+    width: 50px;
+    height:50px;
+}
 
+/*CARGA DE DATOS*/
+.DivAgregar {
+    margin-top: 20px;
+}

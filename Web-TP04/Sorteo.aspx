@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="Sorteo.aspx.cs" Inherits="Web_TP04.Sorteo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="Estilos.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col">
         <div class="row text-center">
-            <h1>¡Ingresa el codigo de tu Voucher!</h1>
+            <h1 class="H1Sorteo">¡Ingresa el codigo de tu Voucher!</h1>
         </div>
         <div class="row">
             <div class="col text-center p-3">

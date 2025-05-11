@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="CargaDeDatos.aspx.cs" Inherits="Web_TP04.CargaDeDatos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Estilos.css" />
 </asp:Content>
@@ -8,22 +9,28 @@
     </div>
     <div class="TxtDatos">
         <div>
-            <asp:TextBox ID="TxtDni" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDni" runat="server" Placeholder="DNI"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtNombre" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtNombre" runat="server" Placeholder="Nombre"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtApellido" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtApellido" runat="server" Placeholder="Apellido"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCorreo" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtDireccion" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Dirección"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCiudad" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad"></asp:TextBox>
+        </div>
+        <div>
+            <asp:TextBox ID="TxtCodigo" runat="server"  Placeholder="Codigo postal"></asp:TextBox>
+        </div>
+        <div class="DivAgregar">
+            <asp:Button ID="BtnAgregar" runat="server" Text="Agregar Cliente" OnClick="BtnAgregar_Click"/>
         </div>
     </div>
 </asp:Content>

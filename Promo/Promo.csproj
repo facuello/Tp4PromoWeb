@@ -41,9 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoArticulo.cs" />
+    <Compile Include="AccesoClientes.cs" />
     <Compile Include="AccesoImagen.cs" />
     <Compile Include="AccesoVoucher.cs" />
+    <Compile Include="Articulo.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Clientes.cs" />
     <Compile Include="Imagen.cs" />
+    <Compile Include="Marca.cs" />
     <Compile Include="Voucher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

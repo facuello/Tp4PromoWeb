@@ -14,21 +14,35 @@ namespace Web_TP04
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Imagen> lista = new List<Imagen>();
+            List<string> img1 = new List<string>();
+            List<string> img2 = new List<string>();
+            List<string> img3 = new List<string>();
             AccesoImagen aux = new AccesoImagen();
             lista = aux.listar();
             foreach (Imagen img in lista) {
                 if (img.IdArticulo == 1)
                 {
-                    imgPremio1.ImageUrl = img.UrlImagen;
+                    img1.Add(img.UrlImagen);
                 }
                 else if (img.IdArticulo == 2)
                 {
-                    imgPremio2.ImageUrl = img.UrlImagen;
+                    img2.Add(img.UrlImagen);
                 }
                 else {
-                    imgPremio3.ImageUrl = img.UrlImagen;
+                    img3.Add(img.UrlImagen);
                 }
             }
+            imgPremio11.ImageUrl = img1[0];
+            imgPremio12.ImageUrl = img1[1];
+            imgPremio13.ImageUrl = img1[2];
+
+            imgPremio21.ImageUrl = img2[0];
+            imgPremio22.ImageUrl = img2[1];
+            imgPremio23.ImageUrl = img2[2];
+
+            imgPremio31.ImageUrl = img3[0];
+            imgPremio32.ImageUrl = img3[1];
+            imgPremio33.ImageUrl = img3[2];
         }
         protected void BtnElegirPremio(object sender, EventArgs e)
         {

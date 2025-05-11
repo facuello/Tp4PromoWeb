@@ -12,7 +12,8 @@ namespace Promo
         private List<Voucher> vouchers = null;
         private AccesoDatos datos = null;
 
-        public List<Voucher> listar() { 
+        public List<Voucher> listar()
+        {
             vouchers = new List<Voucher>();
             datos = new AccesoDatos();
             datos.Conectar();
@@ -21,7 +22,8 @@ namespace Promo
 
             try
             {
-                while (datos.Lector.Read()) {
+                while (datos.Lector.Read())
+                {
                     Voucher aux = new Voucher();
                     aux.CodigoVoucher = datos.validarNullString(datos.Lector["CodigoVoucher"]);
                     aux.IdCliente = datos.validarNullInt32(datos.Lector["IdCliente"]);
@@ -37,6 +39,29 @@ namespace Promo
             }
             datos.Cerrar();
             return vouchers;
+        }
+        public void actualizarVoucher(Voucher vou, Clientes cli, Articulo art)
+        {
+            datos = new AccesoDatos();
+
+            try
+            {
+                datos.Conectar();
+                datos.Consultar("UPDATE Vouchers SET IdArticulo = @IdCliente, FechaCanje = GETDATE(), IdArticulo = @IdArticulo WHERE CodigoVoucher = @CodigoVoucher");
+                datos.setearParametro("@IdCliente", cli.id);
+                datos.setearParametro("@IdArticulo",art.id);
+                datos.setearParametro("@CodigoVoucher",vou.CodigoVoucher);
+                datos.EjecutarNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
         }
     }
 }

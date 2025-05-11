@@ -91,5 +91,11 @@ namespace Dominio
             }
             return (System.DateTime)Rdr;
         }
+        public System.Decimal validarNullDecimal(object Rdr) {
+            if (Rdr is DBNull) {
+                return System.Decimal.Zero;
+            }
+            return (System.Decimal)Rdr;
+        }
     }
 }

@@ -8,7 +8,7 @@
     </div>
     <div class="TxtDatos">
         <div>
-            <asp:TextBox ID="TxtDni" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDni"  runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:TextBox ID="TxtNombre" runat="server"></asp:TextBox>

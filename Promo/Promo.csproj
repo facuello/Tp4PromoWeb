@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoImagen.cs" />
     <Compile Include="AccesoVoucher.cs" />
+    <Compile Include="Imagen.cs" />
     <Compile Include="Voucher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

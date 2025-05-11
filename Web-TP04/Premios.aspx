@@ -8,15 +8,23 @@
         <h1 class="H1Premios">¡Elegi el producto por el que quieras participar!</h1>
     </div>
     <div class="Premios">
-        <div class="Img-premios">
-            <asp:Image ID="premio1" runat="server" ImageUrl="~/Imagenes/Teclado.png" CssClass="imagen-premio1"/>
-            <asp:Image ID="premio2" runat="server" ImageUrl="~/Imagenes/Auris.png" CssClass="imagen-premio2"/>
-            <asp:Image ID="premio3" runat="server" ImageUrl="~/Imagenes/Moni.png" CssClass="imagen-premio3"/>
-        </div>
-        <div class="botones-premios">
-            <asp:Button runat="server" Text="Elegir producto" CssClass="boton-premio"  OnClick="BtnElegirPremio"/>
-            <asp:Button runat="server" Text="Elegir producto" CssClass="boton-premio"  OnClick="BtnElegirPremio"/>
-            <asp:Button runat="server" Text="Elegir producto" CssClass="boton-premio"  OnClick="BtnElegirPremio"/>
+        <div class="row">
+            <div class="col">
+                <a href="CargaDeDatos.aspx">
+                    <asp:Image ID="imgPremio1" runat="server" CssClass="imagen-premio1" class="rounded float-start" />
+                </a>
+            </div>
+            <div class="col">
+                <a href="CargaDeDatos.aspx">
+                    <asp:Image ID="imgPremio2" runat="server" CssClass="imagen-premio2" class="rounded float-start" />
+                </a>
+            </div>
+            <div class="col">
+                <a href="CargaDeDatos.aspx">
+                    <asp:Image ID="imgPremio3" runat="server" CssClass="imagen-premio3" class="rounded float-start"/>
+                </a>
+                
+            </div>
         </div>
     </div>
 </asp:Content>

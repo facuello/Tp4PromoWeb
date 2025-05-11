@@ -15,30 +15,30 @@ namespace Web_TP04
     {
 
         /// <summary>
-        /// Control premio1.
+        /// Control imgPremio1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image premio1;
+        protected global::System.Web.UI.WebControls.Image imgPremio1;
 
         /// <summary>
-        /// Control premio2.
+        /// Control imgPremio2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image premio2;
+        protected global::System.Web.UI.WebControls.Image imgPremio2;
 
         /// <summary>
-        /// Control premio3.
+        /// Control imgPremio3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image premio3;
+        protected global::System.Web.UI.WebControls.Image imgPremio3;
     }
 }

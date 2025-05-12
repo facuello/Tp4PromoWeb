@@ -44,8 +44,9 @@
                         <asp:Image ID="imgPremio22" runat="server" class="d-block" alt="MouseImg2" />
                     </div>
                     <div class="carousel-item">
-                        <asp:Image ID="imgPremio23" runat="server" class="d-block" alt="MouseImg3" />
+                        <asp:Image ID="imgPremio23" runat="server" class="d-block5" alt="MouseImg3" />
                     </div>
+
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,13 +83,13 @@
         </div>
     </div>
     <div>
-        <asp:Button ID="btnPremio1" runat="server" Text="Button" OnClick="BtnElegirPremio"/>
+        <asp:Button ID="btnPremio1" runat="server" Text="Mochila" OnClick="BtnElegirPremio"/>
     </div>
     <div>
-        <asp:Button ID="btnPremio2" runat="server" Text="Button" OnClick="btnPremio2_Click"/>
+        <asp:Button ID="btnPremio2" runat="server" Text="Mouse" OnClick="btnPremio2_Click"/>
     </div>
     <div>
-        <asp:Button ID="btnPremio3" runat="server" Text="Button" OnClick="btnPremio3_Click"/>
+        <asp:Button ID="btnPremio3" runat="server" Text="Teclado" OnClick="btnPremio3_Click"/>
     </div>
 </asp:Content>
 

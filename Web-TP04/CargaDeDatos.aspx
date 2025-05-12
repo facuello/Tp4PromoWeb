@@ -27,10 +27,13 @@
             <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCodigo" runat="server"  Placeholder="Codigo postal"></asp:TextBox>
+            <asp:TextBox ID="TxtCodigo" runat="server" Placeholder="Codigo postal"></asp:TextBox>
         </div>
         <div class="DivAgregar">
-            <asp:Button ID="BtnAgregar" runat="server" Text="Agregar Cliente" OnClick="BtnAgregar_Click"/>
+            <asp:Button ID="BtnAgregar" runat="server" Text="Agregar Cliente" OnClick="BtnAgregar_Click" />
+        </div>
+        <div>
+            <asp:Button ID="BtnAutofillDNI" runat="server" Text="Autocompletar con DNI" OnClick="BtnBuscar_Click" />
         </div>
     </div>
 </asp:Content>

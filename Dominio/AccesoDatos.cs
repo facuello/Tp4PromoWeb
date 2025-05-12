@@ -17,7 +17,7 @@ namespace Dominio
             get { return lector; }
         }
         public void Conectar() {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=PROMOS_DB; integrated security=true");
+            conexion = new SqlConnection("server=.; database=PROMOS_DB; integrated security=true");
             comando = new SqlCommand();
         }
         public void Consultar(string consulta) {
@@ -41,7 +41,6 @@ namespace Dominio
 
         public void EjecutarNonQuery()
         {
-
             comando.Connection = conexion;
 
             try
@@ -51,7 +50,6 @@ namespace Dominio
             }
             catch (Exception er)
             {
-
                 throw er;
             }
         }

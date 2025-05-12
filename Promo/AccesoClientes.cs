@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,8 @@ namespace Promo
         private List<Clientes> clientes = null;
         private AccesoDatos datos = null;
 
-        public List<Clientes> listar() { 
+        public List<Clientes> listar()
+        {
             clientes = new List<Clientes>();
             datos = new AccesoDatos();
 
@@ -42,14 +45,15 @@ namespace Promo
 
                 throw er;
             }
-            finally 
+            finally
             {
                 datos.Cerrar();
             }
-            
+
             return clientes;
         }
-        public void agregarCliente(Clientes nuevo) {
+        public void agregarCliente(Clientes nuevo)
+        {
             datos = new AccesoDatos();
             try
             {
@@ -69,10 +73,45 @@ namespace Promo
 
                 throw er;
             }
-            finally 
+            finally
             {
                 datos.Cerrar();
             }
+        }
+
+        public Clientes obtenerClientePorDni(int dni)
+        {
+            datos = new AccesoDatos();
+            SqlConnection connection = new SqlConnection();
+            Clientes cliente = null;
+            {
+                string query = "SELECT * FROM Clientes WHERE documento = @Dni";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Dni", dni);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        cliente = new Clientes
+                        {
+                            documento = (int)reader["documento"],
+                            nombre = reader["nombre"].ToString(),
+                            apellido = reader["apellido"].ToString(),
+                            email = reader["email"].ToString(),
+                            direccion = reader["direccion"].ToString(),
+                            ciudad = reader["ciudad"].ToString(),
+                            codigoPostal = (int)reader["codigoPostal"]
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener el cliente: " + ex.Message);
+                }
+            }
+            return cliente;
         }
     }
 }

@@ -27,8 +27,8 @@ namespace Promo
                     aux.codigo = datos.validarNullString(datos.Lector["Codigo"]);
                     aux.nombre = datos.validarNullString(datos.Lector["Nombre"]);
                     aux.descripcion = datos.validarNullString(datos.Lector["Descripcion"]);
-                    aux.marca.Descripcion = datos.validarNullString(datos.Lector["MarcaDescripcion"]);
-                    aux.categoria.Descripcion = datos.validarNullString(datos.Lector["CategoriaDescripcion"]);
+                    //aux.marca.Descripcion = datos.validarNullString(datos.Lector["MarcaDescripcion"]);
+                    //aux.categoria.Descripcion = datos.validarNullString(datos.Lector["CategoriaDescripcion"]);
                     aux.precio = datos.validarNullDecimal(datos.Lector["Precio"]);
 
                     articulos.Add(aux);

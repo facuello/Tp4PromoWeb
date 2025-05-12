@@ -85,10 +85,10 @@
         <asp:Button ID="btnPremio1" runat="server" Text="Button" OnClick="BtnElegirPremio"/>
     </div>
     <div>
-        <asp:Button ID="btnPremio2" runat="server" Text="Button" OnClick="BtnElegirPremio"/>
+        <asp:Button ID="btnPremio2" runat="server" Text="Button" OnClick="btnPremio2_Click"/>
     </div>
     <div>
-        <asp:Button ID="btnPremio3" runat="server" Text="Button" OnClick="BtnElegirPremio"/>
+        <asp:Button ID="btnPremio3" runat="server" Text="Button" OnClick="btnPremio3_Click"/>
     </div>
 </asp:Content>
 

@@ -9,31 +9,28 @@
     </div>
     <div class="TxtDatos">
         <div>
-            <asp:TextBox ID="TxtDni" runat="server" Placeholder="DNI"></asp:TextBox>
+            <asp:TextBox ID="TxtDni" runat="server" Placeholder="DNI" required="true" AutoPostBack="true" OnTextChanged="TxtDni_TextChanged"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtNombre" runat="server" Placeholder="Nombre"></asp:TextBox>
+            <asp:TextBox ID="TxtNombre" runat="server" Placeholder="Nombre" required="true"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtApellido" runat="server" Placeholder="Apellido"></asp:TextBox>
+            <asp:TextBox ID="TxtApellido" runat="server" Placeholder="Apellido" required="true"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo"></asp:TextBox>
+            <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo" required="true"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Direccion"></asp:TextBox>
+            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Direccion" required="true"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad"></asp:TextBox>
+            <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad" required="true"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCodigo" runat="server" Placeholder="Codigo postal"></asp:TextBox>
+            <asp:TextBox ID="TxtCodigo" runat="server" Placeholder="Codigo postal" required="true"></asp:TextBox>
         </div>
         <div class="DivAgregar">
-            <asp:Button ID="BtnAgregar" runat="server" Text="Agregar Cliente" OnClick="BtnAgregar_Click" />
-        </div>
-        <div>
-            <asp:Button ID="BtnAutofillDNI" runat="server" Text="Autocompletar con DNI" OnClick="BtnBuscar_Click" />
+            <asp:Button ID="BtnAgregar" runat="server" Text="Participar" OnClick="BtnAgregar_Click" />
         </div>
     </div>
 </asp:Content>

@@ -29,7 +29,7 @@ namespace Promo
                 while (datos.Lector.Read())
                 {
                     aux.id = datos.validarNullInt32(datos.Lector["Id"]);
-                    aux.documento = datos.validarNullInt32(datos.Lector["Documento"]);
+                    aux.documento = datos.validarNullString(datos.Lector["Documento"]);
                     aux.nombre = datos.validarNullString(datos.Lector["Nombre"]);
                     aux.apellido = datos.validarNullString(datos.Lector["Apellido"]);
                     aux.email = datos.validarNullString(datos.Lector["Email"]);
@@ -82,36 +82,32 @@ namespace Promo
         public Clientes obtenerClientePorDni(int dni)
         {
             datos = new AccesoDatos();
-            SqlConnection connection = new SqlConnection();
-            Clientes cliente = null;
+            Clientes cliente = new Clientes();
+            try
             {
-                string query = "SELECT * FROM Clientes WHERE documento = @Dni";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Dni", dni);
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        cliente = new Clientes
-                        {
-                            documento = (int)reader["documento"],
-                            nombre = reader["nombre"].ToString(),
-                            apellido = reader["apellido"].ToString(),
-                            email = reader["email"].ToString(),
-                            direccion = reader["direccion"].ToString(),
-                            ciudad = reader["ciudad"].ToString(),
-                            codigoPostal = (int)reader["codigoPostal"]
-                        };
-                    }
+                datos.Conectar();
+                datos.Consultar("SELECT Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP FROM Clientes WHERE documento = @Dni");
+                datos.setearParametro("@Dni", dni);
+                while (datos.Lector.Read())
+                {                 
+                    cliente.documento = datos.validarNullString(datos.Lector["Documento"]);
+                    cliente.nombre = datos.validarNullString(datos.Lector["Nombre"]);
+                    cliente.apellido = datos.validarNullString(datos.Lector["Apellido"]);
+                    cliente.email = datos.validarNullString(datos.Lector["Email"]);
+                    cliente.direccion = datos.validarNullString(datos.Lector["Direccion"]);
+                    cliente.ciudad = datos.validarNullString(datos.Lector["Ciudad"]);
+                    cliente.codigoPostal = datos.validarNullInt32(datos.Lector["CP"]);
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error al obtener el cliente: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el cliente: " + ex.Message);
+            }
+            finally
+            {
+                datos.Cerrar();
             }
             return cliente;
         }
-    }
+}
 }

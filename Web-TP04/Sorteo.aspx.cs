@@ -16,7 +16,6 @@ namespace Web_TP04
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -26,8 +25,9 @@ namespace Web_TP04
 
             foreach (Voucher voucher in vouchers)
             {
-                if (voucher.CodigoVoucher == txtCodigo.Text)
+                if ((voucher.CodigoVoucher == txtCodigo.Text) && (voucher.IdCliente == 0))
                 {
+                    Session.Add("Voucher", voucher);
                     Response.Redirect("Premios.aspx");
                 }
             }

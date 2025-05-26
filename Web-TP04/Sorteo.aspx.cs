@@ -34,13 +34,11 @@ namespace Web_TP04
                 {
                     lblMensaje.Text = "El código de voucher ya ha sido utilizado.";
                     lblMensaje.Visible = true;
-                }
-                else if ((voucher.CodigoVoucher != txtCodigo.Text))
-                {
-                    lblMensaje.Text = "El codigo de voucher es inexistente.";
-                    lblMensaje.Visible = true;
+                    return;
                 }
             }
+            lblMensaje.Text = "El codigo de voucher es inexistente.";
+            lblMensaje.Visible = true;
         }
     }
 }

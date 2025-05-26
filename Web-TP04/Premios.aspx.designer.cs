@@ -42,6 +42,15 @@ namespace Web_TP04
         protected global::System.Web.UI.WebControls.Image imgPremio13;
 
         /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
         /// Control imgPremio21.
         /// </summary>
         /// <remarks>
@@ -69,6 +78,15 @@ namespace Web_TP04
         protected global::System.Web.UI.WebControls.Image imgPremio23;
 
         /// <summary>
+        /// Control btnPremio2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPremio2;
+
+        /// <summary>
         /// Control imgPremio31.
         /// </summary>
         /// <remarks>
@@ -94,24 +112,6 @@ namespace Web_TP04
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPremio33;
-
-        /// <summary>
-        /// Control btnPremio1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPremio1;
-
-        /// <summary>
-        /// Control btnPremio2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPremio2;
 
         /// <summary>
         /// Control btnPremio3.

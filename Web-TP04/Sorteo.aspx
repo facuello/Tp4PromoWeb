@@ -18,5 +18,10 @@
                 <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
             </div>
         </div>
+        <div class="row">
+            <div class="col text-center p-3">
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+            </div>
+        </div>
     </div>
 </asp:Content>

@@ -47,7 +47,7 @@ namespace Promo
             try
             {
                 datos.Conectar();
-                datos.Consultar("UPDATE Vouchers SET IdArticulo = @IdCliente, FechaCanje = GETDATE(), IdArticulo = @IdArticulo WHERE CodigoVoucher = @CodigoVoucher");
+                datos.Consultar("UPDATE Vouchers SET IdCliente = @IdCliente, FechaCanje = GETDATE(), IdArticulo = @IdArticulo WHERE CodigoVoucher = @CodigoVoucher");
                 datos.setearParametro("@IdCliente", cli.id);
                 datos.setearParametro("@IdArticulo",art.id);
                 datos.setearParametro("@CodigoVoucher",vou.CodigoVoucher);

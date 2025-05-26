@@ -41,7 +41,6 @@ namespace Dominio
 
         public void EjecutarNonQuery()
         {
-
             comando.Connection = conexion;
 
             try
@@ -51,7 +50,6 @@ namespace Dominio
             }
             catch (Exception er)
             {
-
                 throw er;
             }
         }

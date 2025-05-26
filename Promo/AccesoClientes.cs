@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,8 @@ namespace Promo
         private List<Clientes> clientes = null;
         private AccesoDatos datos = null;
 
-        public List<Clientes> listar() { 
+        public List<Clientes> listar()
+        {
             clientes = new List<Clientes>();
             datos = new AccesoDatos();
 
@@ -26,7 +29,7 @@ namespace Promo
                 while (datos.Lector.Read())
                 {
                     aux.id = datos.validarNullInt32(datos.Lector["Id"]);
-                    aux.documento = datos.validarNullInt32(datos.Lector["Documento"]);
+                    aux.documento = datos.validarNullString(datos.Lector["Documento"]);
                     aux.nombre = datos.validarNullString(datos.Lector["Nombre"]);
                     aux.apellido = datos.validarNullString(datos.Lector["Apellido"]);
                     aux.email = datos.validarNullString(datos.Lector["Email"]);
@@ -42,14 +45,15 @@ namespace Promo
 
                 throw er;
             }
-            finally 
+            finally
             {
                 datos.Cerrar();
             }
-            
+
             return clientes;
         }
-        public void agregarCliente(Clientes nuevo) {
+        public void agregarCliente(Clientes nuevo)
+        {
             datos = new AccesoDatos();
             try
             {
@@ -69,10 +73,41 @@ namespace Promo
 
                 throw er;
             }
-            finally 
+            finally
             {
                 datos.Cerrar();
             }
         }
-    }
+
+        public Clientes obtenerClientePorDni(int dni)
+        {
+            datos = new AccesoDatos();
+            Clientes cliente = new Clientes();
+            try
+            {
+                datos.Conectar();
+                datos.Consultar("SELECT Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP FROM Clientes WHERE documento = @Dni");
+                datos.setearParametro("@Dni", dni);
+                while (datos.Lector.Read())
+                {                 
+                    cliente.documento = datos.validarNullString(datos.Lector["Documento"]);
+                    cliente.nombre = datos.validarNullString(datos.Lector["Nombre"]);
+                    cliente.apellido = datos.validarNullString(datos.Lector["Apellido"]);
+                    cliente.email = datos.validarNullString(datos.Lector["Email"]);
+                    cliente.direccion = datos.validarNullString(datos.Lector["Direccion"]);
+                    cliente.ciudad = datos.validarNullString(datos.Lector["Ciudad"]);
+                    cliente.codigoPostal = datos.validarNullInt32(datos.Lector["CP"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el cliente: " + ex.Message);
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+            return cliente;
+        }
+}
 }

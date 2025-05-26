@@ -46,6 +46,31 @@ namespace Web_TP04
         }
         protected void BtnElegirPremio(object sender, EventArgs e)
         {
+            AccesoArticulo data = new AccesoArticulo();
+            List<Articulo> arts = new List<Articulo>();
+            arts = data.listar();
+
+            Session.Add("Articulo", arts[0]);
+            Response.Redirect("CargaDeDatos.aspx");
+        }
+
+        protected void btnPremio2_Click(object sender, EventArgs e)
+        {
+            AccesoArticulo data = new AccesoArticulo();
+            List<Articulo> arts = new List<Articulo>();
+            arts = data.listar();
+
+            Session.Add("Articulo", arts[1]);
+            Response.Redirect("CargaDeDatos.aspx");
+        }
+
+        protected void btnPremio3_Click(object sender, EventArgs e)
+        {
+            AccesoArticulo data = new AccesoArticulo();
+            List<Articulo> arts = new List<Articulo>();
+            arts = data.listar();
+
+            Session.Add("Articulo", arts[2]);
             Response.Redirect("CargaDeDatos.aspx");
         }
     }

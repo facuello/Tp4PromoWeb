@@ -11,7 +11,7 @@ namespace Web_TP04
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Abandon();
         }
     }
 }

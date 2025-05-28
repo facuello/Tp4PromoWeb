@@ -76,22 +76,22 @@ namespace Web_TP04
             clientes = new List<Clientes>();
             clientes = datoClientes.listar();
 
-            vau.actualizarVoucher((Voucher)Session["Voucher"], clientes[(clientes.Count)-1], (Articulo)Session["Articulo"]);
-
-            // Limpiamos los campos
-            TxtDni.Text = "";
-            TxtNombre.Text = "";
-            TxtApellido.Text = "";
-            TxtCorreo.Text = "";
-            TxtDireccion.Text = "";
-            TxtCiudad.Text = "";
-            TxtCodigo.Text = "";
-
-            Response.Redirect("Default.aspx");
+            foreach (Clientes aux in accesoClientes.listar())
+            {
+                if (aux.documento == nuevoCliente.documento)
+                {
+                    if (vau.actualizarVoucher((Voucher)Session["Voucher"], aux, (Articulo)Session["Articulo"]))
+                    {
+                        Response.Redirect("Default.aspx");
+                    }
+                }
+            }
+            lblError.Text = "No se puede participar el mismo cliente en el mismo articulo.";
         }
 
         protected void TxtDni_TextChanged(object sender, EventArgs e)
         {
+            lblError.Text = "";
             List<Clientes> clientes = new List<Clientes>();
             AccesoClientes datosClientes = new AccesoClientes();
 

@@ -33,4 +33,7 @@
             <asp:Button ID="BtnAgregar" runat="server" Text="Participar" OnClick="BtnAgregar_Click" />
         </div>
     </div>
+    <div class="col text-center p-3">
+        <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="True"></asp:Label>
+    </div>
 </asp:Content>

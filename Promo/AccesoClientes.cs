@@ -25,9 +25,9 @@ namespace Promo
 
             try
             {
-                Clientes aux = new Clientes();
                 while (datos.Lector.Read())
                 {
+                    Clientes aux = new Clientes();
                     aux.id = datos.validarNullInt32(datos.Lector["Id"]);
                     aux.documento = datos.validarNullString(datos.Lector["Documento"]);
                     aux.nombre = datos.validarNullString(datos.Lector["Nombre"]);

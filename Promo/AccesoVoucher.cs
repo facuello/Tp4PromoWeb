@@ -40,9 +40,17 @@ namespace Promo
             datos.Cerrar();
             return vouchers;
         }
-        public void actualizarVoucher(Voucher vou, Clientes cli, Articulo art)
+        public bool actualizarVoucher(Voucher vou, Clientes cli, Articulo art)
         {
             datos = new AccesoDatos();
+
+            foreach (Voucher aux in listar())
+            {
+                if (aux.IdCliente == cli.id && aux.IdArticulo == art.id)
+                {
+                    return false;
+                }
+            }
 
             try
             {
@@ -62,6 +70,7 @@ namespace Promo
             {
                 datos.Cerrar();
             }
+            return true;
         }
     }
 }

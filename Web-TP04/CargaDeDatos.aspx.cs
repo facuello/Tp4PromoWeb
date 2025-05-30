@@ -89,13 +89,21 @@ namespace Web_TP04
                 {
                     if (vau.actualizarVoucher((Voucher)Session["Voucher"], aux, (Articulo)Session["Articulo"]))
                     {
-                        Response.Redirect("Default.aspx");
+                        //lblMensaje.ForeColor = System.Drawing.Color.Green;
+                        lblMensaje.Text = "¡El voucher fue usado exitosamente!";
+                        //Response.Redirect("Default.aspx");
+                    } else
+                    {
+                        lblError.Text = "No puede participar el mismo cliente por el mismo articulo.";
+                        btnVolver.Visible = true;
                     }
                 }
             }
-            lblError.Text = "No puede participar el mismo cliente por el mismo articulo.";
         }
 
-
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

@@ -34,6 +34,9 @@
         </div>
     </div>
     <div class="col text-center p-3">
+        <asp:Label ID="lblMensaje" runat="server" ForeColor="Green" Visible="True"></asp:Label>
         <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="True"></asp:Label>
+        <br />
+        <asp:Button ID="btnVolver" runat="server" Text="Volver a Inicio" Visible="False" OnClick="btnVolver_Click" />
     </div>
 </asp:Content>

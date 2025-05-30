@@ -20,28 +20,35 @@ namespace Web_TP04
 
         }
 
-        protected void BtnBuscar_Click(object sender, EventArgs e)
+        protected void TxtDni_TextChanged(object sender, EventArgs e)
         {
-            //int dni;
-            //if (int.TryParse(TxtDni.Text, out dni))
-            //{
-            //    AccesoClientes accesoClientes = new AccesoClientes();
-            //    AccesoDatos datos = new AccesoDatos();
+            lblError.Text = "";
+            List<Clientes> clientes = new List<Clientes>();
+            AccesoClientes datosClientes = new AccesoClientes();
 
-            //    Clientes cliente = accesoClientes.obtenerClientePorDni(dni);
-            //    if (cliente != null)
-            //    {
-            //        // Cargar los datos del cliente en los campos
-            //        TxtNombre.Text = cliente.nombre;
-            //        TxtApellido.Text = cliente.apellido;
-            //        TxtCorreo.Text = cliente.email;
-            //        TxtDireccion.Text = cliente.direccion;
-            //        TxtCiudad.Text = cliente.ciudad;
-            //        TxtCodigo.Text = cliente.codigoPostal.ToString();
-            //    }
-            //}
+            clientes = datosClientes.listar();
+
+            foreach (Clientes aux in clientes)
+            {
+                if (aux.documento == TxtDni.Text)
+                {
+                    TxtDni.Text = aux.documento;
+                    TxtNombre.Text = aux.nombre;
+                    TxtApellido.Text = aux.apellido;
+                    TxtCorreo.Text = aux.email;
+                    TxtDireccion.Text = aux.direccion;
+                    TxtCiudad.Text = aux.ciudad;
+                    TxtCodigo.Text = aux.codigoPostal.ToString();
+                    return;
+                }
+            }
+            TxtNombre.Text = "";
+            TxtApellido.Text = "";
+            TxtCorreo.Text = "";
+            TxtDireccion.Text = "";
+            TxtCiudad.Text = "";
+            TxtCodigo.Text = "";
         }
-
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
@@ -86,35 +93,9 @@ namespace Web_TP04
                     }
                 }
             }
-            lblError.Text = "No se puede participar el mismo cliente en el mismo articulo.";
+            lblError.Text = "No puede participar el mismo cliente por el mismo articulo.";
         }
 
-        protected void TxtDni_TextChanged(object sender, EventArgs e)
-        {
-            lblError.Text = "";
-            List<Clientes> clientes = new List<Clientes>();
-            AccesoClientes datosClientes = new AccesoClientes();
 
-            clientes = datosClientes.listar();
-
-            foreach (Clientes aux in clientes) {
-                if (aux.documento == TxtDni.Text) {
-                    TxtDni.Text = aux.documento;
-                    TxtNombre.Text = aux.nombre;
-                    TxtApellido.Text = aux.apellido;
-                    TxtCorreo.Text = aux.email;
-                    TxtDireccion.Text = aux.direccion;
-                    TxtCiudad.Text = aux.ciudad;
-                    TxtCodigo.Text = aux.codigoPostal.ToString();
-                    return;
-                }
-            }
-            TxtNombre.Text = "";
-            TxtApellido.Text = "";
-            TxtCorreo.Text = "";
-            TxtDireccion.Text = "";
-            TxtCiudad.Text = "";
-            TxtCodigo.Text = "";
-        }
     }
 }

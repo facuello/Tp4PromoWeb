@@ -12,22 +12,22 @@
             <asp:TextBox ID="TxtDni" runat="server" Placeholder="DNI" required="true" AutoPostBack="true" OnTextChanged="TxtDni_TextChanged" TextMode="Number"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtNombre" runat="server" Placeholder="Nombre" required="true"></asp:TextBox>
+            <asp:TextBox ID="TxtNombre" runat="server" Placeholder="Nombre" required="true" ReadOnly="True"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtApellido" runat="server" Placeholder="Apellido" required="true"></asp:TextBox>
+            <asp:TextBox ID="TxtApellido" runat="server" Placeholder="Apellido" required="true" ReadOnly="True"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo" required="true" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="TxtCorreo" runat="server" Placeholder="Correo" required="true" TextMode="Email" ReadOnly="True"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Direccion" required="true"></asp:TextBox>
+            <asp:TextBox ID="TxtDireccion" runat="server" Placeholder="Direccion" required="true" ReadOnly="True"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad" required="true"></asp:TextBox>
+            <asp:TextBox ID="TxtCiudad" runat="server" Placeholder="Ciudad" required="true" ReadOnly="True"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="TxtCodigo" runat="server" Placeholder="Codigo postal" required="true" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="TxtCodigo" runat="server" Placeholder="Codigo postal" required="true" TextMode="Number" ReadOnly="True"></asp:TextBox>
         </div>
         <div class="DivAgregar">
             <asp:Button ID="BtnAgregar" runat="server" Text="Participar" OnClick="BtnAgregar_Click" />

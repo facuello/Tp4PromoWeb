@@ -4,97 +4,51 @@
     <link rel="stylesheet" type="text/css" href="Estilos.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="row text-center">
         <h1 class="H1Premios">¡Elegi el producto por el que quieras participar!</h1>
+        <br>
     </div>
-    <div class="container text-center my-4">
-        <div class="row text-center align-items-center">
-            <div class="col-md-4">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <asp:Image ID="imgPremio11" runat="server" class="d-block" CssClass="carousel-img" alt="MochilaImg1" />
-                        </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio12" runat="server" class="d-block" CssClass="carousel-img" alt="MochilaImg2" />
-                        </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio13" runat="server" class="d-block" CssClass="carousel-img" alt="MochilaImg3" />
-                        </div>
-                    </div>
-                    <asp:Button ID="Button1" runat="server" Text="Mochila" OnClick="BtnElegirPremio" />
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div id="carouselExampleAutoplaying1" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <asp:Image ID="imgPremio21" runat="server" class="d-block" CssClass="carousel-img" alt="MouseImg1" />
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% foreach (Promo.Articulo art in ListaArticulos)
+           {
+                var imagenes = ImagenesPorArticulo.ContainsKey(art.id) ? ImagenesPorArticulo[art.id] : new List<string> { "https://cdn3.iconfinder.com/data/icons/it-and-ui-mixed-filled-outlines/48/default_image-512.png" };
+                string carouselId = "carousel-" + art.id;
+            %>
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <div id="<%= carouselId %>" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <% for (int i = 0; i < imagenes.Count; i++)
+                                { %>
+                            <div class="carousel-item <%= i == 0 ? "active" : "" %>">
+                                <img src="<%= imagenes[i] %>" class="d-block mx-auto card-img-top" style="max-height: 150px; width: auto;" alt="Imagen <%= i + 1 %> de <%: art.nombre %>">
+                            </div>
+                            <% } %>
                         </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio22" runat="server" class="d-block" CssClass="carousel-img" alt="MouseImg2" />
-                        </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio23" runat="server" class="d-block" CssClass="carousel-img" alt="MouseImg3" />
-                        </div>
-                    </div>
-                    <asp:Button ID="btnPremio2" runat="server" Text="Mouse" OnClick="btnPremio2_Click" />
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div id="carouselExampleAutoplaying2" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <asp:Image ID="imgPremio31" runat="server" class="d-block" CssClass="carousel-img" alt="TecladoImg1" />
-                        </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio32" runat="server" class="d-block" CssClass="carousel-img" alt="TecladoImg2" />
-                        </div>
-                        <div class="carousel-item">
-                            <asp:Image ID="imgPremio33" runat="server" class="d-block" CssClass="carousel-img" alt="TecladoImg3" />
-                        </div>
-                    </div>
-                    <asp:Button ID="btnPremio3" runat="server" Text="Teclado" OnClick="btnPremio3_Click" />
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
 
-        </div>
+                        <% if (imagenes.Count > 1) // Botones para el carrusel
+                           { %>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%= carouselId %>" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%= carouselId %>" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                        <% } %>
+                    </div>
+
+                    <div class="card-body"> <!-- Texto descriptivo del articulo -->
+                        <h5 class="card-title"><%: art.nombre %></h5>
+                        <p class="card-text"><%: art.descripcion %></p>
+                        <a href='Premios.aspx?id=<%= art.id %>' class='btn btn-primary mt-2'>Seleccionar</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
     </div>
-    <%--    <div class="row text-center align-items-center">
-        <div>
-            <asp:Button ID="btnPremio1" runat="server" Text="Mochila" OnClick="BtnElegirPremio" />
-        </div>
-        <div>
-            <asp:Button ID="btnPremio2" runat="server" Text="Mouse" OnClick="btnPremio2_Click" />
-        </div>
-        <div>
-            <asp:Button ID="btnPremio3" runat="server" Text="Teclado" OnClick="btnPremio3_Click" />
-        </div>
-    </div>--%>
+
 </asp:Content>
-
